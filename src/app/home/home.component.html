@@ -16,10 +16,10 @@
     Press Enter to Restart
   </p>
 
-  <p class="won" *ngIf="hasWon">
+  <div class="won" *ngIf="hasWon">
     <p>You won! The word was "{{ word }}".</p>
     <p>Press <strong>Enter</strong> to play again.</p>
-  </p>
+  </div>
 
 <p> You got {{10 - keyPressCount}} guesses left</p>
 
