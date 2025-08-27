@@ -1,0 +1,29 @@
+<h2>Random Word: </h2>
+<p>
+    <span *ngFor="let letter of currentWordLetters" style="margin-right: 5px;">
+      <span 
+        [style.color]="
+          hasLost ? 'red' : 
+          isLetterMatched(letter) ? 'green' : 'gray'
+        ">
+        {{ hasLost || isLetterMatched(letter) ? letter : '_' }}
+      </span>
+    </span>
+  </p>  
+  <!-- Loss Message -->
+  <p *ngIf="hasLost" style="color: red; font-weight: bold;">
+    You lost! The correct word was "{{ word }}".
+    Press Enter to Restart
+  </p>
+
+  <div *ngIf="hasWon" style="color: green; font-weight: bold;">
+    <p>You won! 🎉 The word was "{{ word }}".</p>
+    <p>Press <strong>Enter</strong> to play again.</p>
+  </div>
+
+<p> You got {{10 - keyPressCount}} guesses left</p>
+
+<p>Guesses</p>
+<span *ngFor="let guess of guesses">
+    {{guess}}
+</span>
