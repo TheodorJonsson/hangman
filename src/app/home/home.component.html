@@ -11,15 +11,15 @@
     </span>
   </p>  
   <!-- Loss Message -->
-  <p *ngIf="hasLost" style="color: red; font-weight: bold;">
+  <p class="lost" *ngIf="hasLost">
     You lost! The correct word was "{{ word }}".
     Press Enter to Restart
   </p>
 
-  <div *ngIf="hasWon" style="color: green; font-weight: bold;">
-    <p>You won! 🎉 The word was "{{ word }}".</p>
+  <p class="won" *ngIf="hasWon">
+    <p>You won! The word was "{{ word }}".</p>
     <p>Press <strong>Enter</strong> to play again.</p>
-  </div>
+  </p>
 
 <p> You got {{10 - keyPressCount}} guesses left</p>
 
