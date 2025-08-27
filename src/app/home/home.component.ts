@@ -32,11 +32,9 @@ export class HomeComponent {
     if(this.word.includes(key)){
       this.matchedLetters.add(key);
     }
-    else{
-      if(!this.guesses.has(key)){
+    else if(!this.guesses.has(key)){
         this.keyPressCount++;
         this.guesses.add(key);
-      }
     }
     if(this.keyPressCount >= 10){
       this.hasLost = true;

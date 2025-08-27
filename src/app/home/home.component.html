@@ -22,7 +22,7 @@
   </div>
 
 <p> You got {{10 - keyPressCount}} guesses left</p>
-
+<img [src]="'assets/hangman/' + keyPressCount + '.png'" alt=""/>
 <p>Guesses</p>
 <span *ngFor="let guess of guesses">
     {{guess}}
