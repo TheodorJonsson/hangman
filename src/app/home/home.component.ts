@@ -10,7 +10,7 @@ export class HomeComponent {
   keyPressCount: number = 0;
   word: string = '';
   matchedLetters: Set<string> = new Set();
-  guesses: Set<string> = new Set();
+  guessedLetters: Set<string> = new Set();
   hasLost: boolean = false;
   hasWon: boolean = false;
 
@@ -27,14 +27,14 @@ export class HomeComponent {
       if (key === 'enter') {
         this.restartGame();
       }
-      return; // Ignore all other keys after loss
+      return; // Ignore all other keys after loss or win
     }
     if(this.word.includes(key)){
       this.matchedLetters.add(key);
     }
-    else if(!this.guesses.has(key)){
+    else if(!this.guessedLetters.has(key)){
         this.keyPressCount++;
-        this.guesses.add(key);
+        this.guessedLetters.add(key);
     }
     if(this.keyPressCount >= 10){
       this.hasLost = true;
@@ -53,7 +53,7 @@ export class HomeComponent {
     this.keyPressCount = 0;
     this.word = this.wordsService.getWord();
     this.matchedLetters.clear();
-    this.guesses.clear();
+    this.guessedLetters.clear();
     this.hasLost = false;
     this.hasWon = false;
   }

@@ -1,4 +1,3 @@
-<h2>Random Word: </h2>
 <p>
     <span *ngFor="let letter of currentWordLetters" style="margin-right: 5px;">
       <span 
@@ -23,7 +22,7 @@
 
 <p> You got {{10 - keyPressCount}} guesses left</p>
 <img [src]="'assets/hangman/' + keyPressCount + '.png'" alt=""/>
-<p>Guesses</p>
+<p *ngIf="guesses && guessedLetters.size > 0">Guesses</p>
 <span *ngFor="let guess of guesses">
     {{guess}}
 </span>
